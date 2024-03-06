@@ -11,6 +11,8 @@ import {
 import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
+  const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
   // Add noStore() here to prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
@@ -53,6 +55,8 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchCardData() {
+//   const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+// const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
